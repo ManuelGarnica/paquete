@@ -1,0 +1,99 @@
+.tabla .celda,
+.tabla .cabecera{
+	border: solid 1px #ddd;
+/*	height:40px;
+	margin-top: -1px;
+	margin-left: -1px;
+	
+    text-align: center;
+	padding-top: 2px;
+	*/
+}
+.tabla .tbody .row:hover .celda{
+	background-color:#eeeeee;
+}
+.tabla .row:nth-child(odd) .celda{
+	background-color:#fafafa;
+}
+
+.tabla .table{
+	max-width:100%;
+	width:100%;
+}
+.tabla .thead{
+	max-width:100%;
+	width:100%;
+	display: table-row-group;
+}
+.tabla .tbody{
+	max-width:100%;
+	width:100%;
+	display: table-row-group;
+}
+.tabla .row{
+	max-width:100%;
+	display: table-row;
+}
+.tabla .cabecera{
+	max-width:100%;
+    display: table-cell;
+	height:30px;
+	background-color:#eeeeee;
+	text-align:center;
+	font-weight: bold;
+	font-size:110%;
+	padding:3px;
+}
+.tabla .celda{
+/*    display: table-cell; */
+	padding:3px;
+}
+.tabla-busqueda{
+	margin-bottom:10px;
+}
+
+@media only screen and (max-width: 500px) {
+	.tabla .row div.cabecera{
+		display: none;
+	}
+	.tabla .row div.cabecera:nth-child(1)
+	,.tabla .row div.cabecera:nth-child(2)
+	,.tabla .row div.cabecera:nth-child(3){
+		display: table-cell;
+	}
+	.tabla .row div.celda{
+		display: none;
+	}
+	.tabla .row div.celda:nth-child(1)
+	,.tabla .row div.celda:nth-child(2)
+	,.tabla .row div.celda:nth-child(3){
+		display: table-cell;
+	}
+}
+@media only screen and (min-width: 501px) {
+	.tabla .row div.celda{
+		display: table-cell;
+	}
+	.tabla .row div.cabecera{
+		display: table-cell;
+	}
+}
+#paginacion div{
+	text-align:center;
+}
+#paginacion div:first-child
+,#paginacion div:last-child{
+	background-color:#EEEEEE;
+}
+#numerodepaginas{
+	text-align: left;
+}
+#numerodepaginas input{
+	text-align: center;
+	width: 50px;
+}
+div.celda input{
+	float: left;
+    margin: 0 auto;
+    width: 100%;
+}

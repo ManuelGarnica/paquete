@@ -1,0 +1,59 @@
+.listahorarios{
+    border-radius:2px;
+    padding:10px;
+    background:#f4f4f4;
+    margin-bottom:2px;
+    border-left:2px solid #e6e7e8;
+    color: #444;
+}
+.horarioseleccionado{
+    border-radius:2px;
+    padding:10px;
+    background:#fc6d6d;
+    margin-bottom:2px;
+    border-left:2px solid #e6e7e8;
+    color: #444;
+}
+.horarioseleccionado{
+    border-radius:2px;
+    padding:10px;
+    background:#fc6d6d;
+    margin-bottom:2px;
+    border-left:2px solid #e6e7e8;
+    color: #444;
+}
+.subtitulo{
+    font-size: 24px;
+}
+.titulo{
+    font-size: 30px;
+    font-weight: bold;
+}
+.wrapper{
+    padding:10px;
+}
+.calendario{
+	min-width:513px;
+}
+.calendario,
+.calendario td,
+.calendario th{
+	text-align:center;
+	padding : 10px;
+}
+.calendario th{
+	background:#fafafa;
+}
+.calendario table{
+	width:100%;
+}
+.calendario table,
+.calendario th,
+.calendario td{
+	border: solid 1px #ddd;
+}
+.calendario .controlmes{
+	border: solid 1px #ddd;
+	background : #f4f4f4;
+	color : #444;
+}

@@ -1,0 +1,38 @@
+.tabla{
+	min-width:513px;
+}
+.tabla,
+.tabla td,
+.tabla th{
+	text-align:center;
+	padding : 10px;
+}
+.tabla th{
+	background:#fafafa;
+}
+.tabla table{
+	width:100%;
+}
+.tabla table,
+.tabla th,
+.tabla td{
+	border: solid 1px #ddd;
+}
+.botonera{
+	margin-left:10px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.formularioinput>div{
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.is-valid>div{
+/*	border:#28a745 solid 1px;*/
+}
+.is-invalid>div{
+	border:#dc3545 solid 1px;
+}
+.mensajevalidacion{
+	color:#dc3545;
+}

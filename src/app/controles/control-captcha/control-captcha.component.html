@@ -1,0 +1,21 @@
+
+<h1></h1>
+<!-- 
+ -->
+<div  align="center">
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+		<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12  col-md-push-2">
+			<re-captcha #captchaRef="reCaptcha" (resolved)=resolved($event) siteKey="6Lf7VmYUAAAAANJiFOBUOOmD8RGoQX_NZ3KxLHAU"></re-captcha> 
+			<div *ngIf="validacion===false"  class="mensajevalidacion col-lg-12 col-md-12 col-xs-12 col-sm-12">
+				* Para continuar con la reservacion de su cita, favor de seleccionar el reCAPTCHA.
+			</div>
+		</div>
+		<div align="center" class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<button (click)="onLoginClick(captchaRef)">Recargar Captcha</button>
+		</div>
+	</div>
+	
+	
+		
+	
+</div> 

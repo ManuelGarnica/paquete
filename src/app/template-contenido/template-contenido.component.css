@@ -1,0 +1,36 @@
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: Roboto !important;
+	color:black;
+}
+
+.titulo{
+	font-family: Roboto-Italic !important;
+	 font-size: 25px;
+    color: #44B7A7;
+}
+img {
+    display: block;
+    margin: 0 auto;
+	text-align: center;
+}
+.noticias {
+  
+	width: 100%!important;
+    height: 100%!important;
+    
+}
+#menumodulo div.menu>div>div>a{
+	text-align:center;
+}
+#menulateral>span a{
+	font-size: 16px !important;
+	font-weight: normal !important;
+}
+#menulateral>span b{
+	font-size: 16px !important;
+	font-weight: bold !important;
+}
+#intranetcontenido{
+	padding-top:100px;
+}

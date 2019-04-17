@@ -1,0 +1,44 @@
+
+<div *ngIf="carrusel!=undefined">
+		<div id="carrusel" class="carousel slide" data-ride="carousel">
+			
+			
+				<ol  class="carousel-indicators">
+					<li  *ngFor="let dato of carrusel.datos" 
+					data-target="#carrusel"
+					attr.data-slide-to="{{dato.posicion}}" 
+					class="{{dato.clas}}">
+					</li>
+				</ol>
+				
+				<div  *ngFor="let dato of carrusel.datos" class="carousel-inner">
+					<div class="{{dato.clas2}}">
+						<a *ngIf="dato['link']!==undefined" href="{{dato['link']}}">
+						<img src="{{urlImagenes}}{{dato.imagen}}" alt="{{dato.alt}}" style="width:100%;">
+							<div class="carousel-caption">
+								<h3>{{dato.texto1}}</h3>
+								<p>{{dato.texto2}}</p>
+							</div>
+						</a>
+						<div *ngIf="dato['link']===undefined">
+						<img src="{{urlImagenes}}{{dato.imagen}}" alt="{{dato.alt}}" style="width:100%;">
+							<div class="carousel-caption">
+								<h3>{{dato.texto1}}</h3>
+								<p>{{dato.texto2}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<a class="left carousel-control"  data-slide="prev">
+					<span (click)='Anterior(prev)'class="glyphicon glyphicon-chevron-left"></span>
+					
+				</a>
+				<a class="right carousel-control" data-slide="next">
+					<span  (click)='Siguiente()' class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+			</div>
+		
+	</div>
+	
+  

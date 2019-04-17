@@ -1,0 +1,14 @@
+.nombrearchivo{
+    padding: 10px;
+    display: table;
+    color: #fff;
+}
+.valor{
+    text-decoration: underline;
+    text-decoration-color: blue;
+    color: blue;
+}
+
+.controlarchivo{
+    display: none;
+}

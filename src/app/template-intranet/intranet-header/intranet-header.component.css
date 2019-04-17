@@ -1,0 +1,51 @@
+#accesosrapidos{
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align:right;
+	min-height:40px;
+}
+
+#menuintranet{
+	color:white;
+	height:40px;
+	overflow:overflow;
+}
+#menuintranet>div{
+	background-color:#44B7A7;
+	padding-top:10px;
+	padding-bottom:10px;
+	height:100%;
+	overflow:overflow;
+	z-index:20;
+}
+#menuintranet>div>div{
+	padding-left:10px !important;
+	overflow:overflow;
+}
+#menuintranet>div>div>div{
+	background-color:#44B7A7;
+	opacity: 0.8;
+    filter: alpha(opacity=80);
+	padding-top:10px;
+	padding-bottom:10px;
+	height:40px;
+	width:100%;
+	color:white;
+}
+#menuintranet>div>div:hover{
+	cursor:pointer;
+}
+#menuintranet>div>div>div:hover{
+	cursor:pointer;
+	opacity: 1;
+    filter: alpha(opacity=100);
+}
+#header{
+	margin-top:10px;
+}
+#logo{
+	width:100%;
+}
+#accesosrapidos a{
+	cursor: pointer;
+}

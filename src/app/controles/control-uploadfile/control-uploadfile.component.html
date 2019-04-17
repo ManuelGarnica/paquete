@@ -1,0 +1,22 @@
+<div class="col-lg-{{tamanio!=null?tamanio:6}} col-md-{{tamanio!=null?tamanio:6}} col-xs-12 col-sm-12">
+	<div class="col-lg-{{tamanioinput!=null?tamanioinput:6}} col-md-{{tamanioinput!=null?tamanioinput:6}} col-xs-12 col-sm-12">
+		<label class="btn btn-primary nombrearchivo"> {{etiqueta}}
+			<input
+				type="file"
+				class="controlarchivo"
+				#inputfile
+				[placeholder]="placeholder"
+				(change)="changeListener($event)"
+				[(ngModel)]="inputarchivo"
+				size="60"
+			/>
+		</label> 
+	</div>
+	<div class="col-lg-{{tamaniolabel!=null?tamaniolabel:6}} col-md-{{tamaniolabel!=null?tamaniolabel:6}} col-xs-12 col-sm-12">
+		<label
+			class="valor"
+		> 
+			{{rutaCompleta}}
+		</label>
+	</div>
+</div>

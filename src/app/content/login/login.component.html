@@ -1,0 +1,22 @@
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+	<div id="formulario">
+		<div id="titulo"  class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			{{configuracion['sistema']['nombre']}}
+		</div>
+		<div id="imagen" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			<img id="logo" src="{{urlImagenes}}{{configuracion['sistema']['logoModulo']}}"/>
+		</div>
+		<div id="anuncio" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			<span style="color:red;">*Recuerde que la contraseña diferencía de mayusculas y minúsculas</span>
+		</div>
+		<div  class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			<control-formulario
+				[formulario]="formularioLogin"
+				[datosformulario]="datoslogin"
+				(botonclickeado)="botonformulario($event)"
+				(keyup.enter)="botonformulario($event)"
+			></control-formulario>
+		</div>
+	</div>
+</div>

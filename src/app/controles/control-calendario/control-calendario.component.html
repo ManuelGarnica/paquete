@@ -1,0 +1,30 @@
+<div class="calendario col-lg-12 col-md-12 col-xs-12 col-sm-12">
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+		<h1>{{titulocalendario}}</h1>
+	</div>
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+		<div (click)="aumentarDisminuirMes(-1)" class="controlmes col-lg-1 col-md-1 col-xs-1 col-sm-1" style="display: inline-block;">
+			<i class="fa fa-angle-left"></i>
+		</div>
+		<div class="col-lg-10 col-md-10 col-xs-10 col-sm-10"  style="display: inline-block;">
+			<span><b>-&nbsp;{{ nombreMes.toUpperCase() }}&nbsp;{{ anio }}&nbsp;-</b></span>
+		</div>
+		<div (click)="aumentarDisminuirMes(1)"  class="controlmes col-lg-1 col-md-1 col-xs-1 col-sm-1"  style="display: inline-block;">
+			<i class="fa fa-angle-right"></i>
+		</div>
+	</div>
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+		<table>
+			<thead>
+				<tr>
+					<th *ngFor="let etiquetaDia of nombresDias">{{etiquetaDia}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let semanamostrada of calendarioMostrado">
+					<td (click)="dayClick(dia.cve)" *ngFor="let dia of semanamostrada" [style.background-color]="dia.background !==undefined ? dia.background : 'auto'" [style.color]="dia.background !==undefined ? 'white' : 'auto'" >{{dia.label}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

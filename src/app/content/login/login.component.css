@@ -1,0 +1,24 @@
+#formulario{
+	max-width:500px;
+	margin:auto;
+	padding-top:100px;
+}
+#imagen{
+	text-align:center;
+	margin-top:50px;
+	margin-bottom:50px;
+}
+#titulo{
+	color:#44B7A7;
+	margin-top:50px;
+	text-align:center;
+	font-weight: bold;
+	font-size: 25px;
+}
+#logo{
+	width:200px;
+	height:200px;
+}
+#anuncio{
+	font-size:10px;
+}

@@ -1,0 +1,37 @@
+<div class="row">
+	<div class="tabla-busqueda col-lg-3 col-md-3 col-xs-12 col-sm-12"  *ngIf="!(configuraciones.busqueda==='NO')">
+		Buscar: <input class="form-control" type="text" [(ngModel)]="busqueda" />
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" *ngIf="contenido.length<=0">
+		No hay registros a mostrar.
+	</div>
+	<div class="tabla col-lg-12 col-md-12 col-xs-12 col-sm-12" *ngIf="contenido.length>0">
+		<div class="table">
+			<div  class="tbody">
+				<div class="row">
+					<div class="cabecera" *ngFor="let cabecera of cabeceras" (click)="clickOrdenamiento(cabecera.real)" >{{cabecera.mostrado}}</div>
+				</div>
+				<div class="row" *ngFor="let renglon of mostrarPagina(paginaactual,busqueda,tablamostrar)">           
+				  <div  class="celda" *ngFor="let numerocolumna of pintarRenglon(renglon)">
+					<div *ngIf="renglon[numerocolumna]!==null && renglon[numerocolumna]['tipo']==='boton';then boton else elseboton" ></div>
+					<ng-template #boton><button (click)="clickboton(renglon[numerocolumna].funcion,renglon[numerocolumna].argumento)"  class="btn btn-primary" type="button">{{renglon[numerocolumna].etiqueta}}</button></ng-template>
+					<ng-template #elseboton *ngIf="renglon[numerocolumna]!==null && renglon[numerocolumna]['tipo']==='checkbox';then checkbox else elsecheckbox"></ng-template>
+					<ng-template #checkbox ><input type="checkbox">{{renglon[numerocolumna].etiqueta}}</ng-template>
+					<ng-template #elsecheckbox >{{renglon[numerocolumna].valor}}</ng-template>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="paginacion" class="row" *ngIf="contenido.length>0">
+	<div (click)="desplazarse(-1)" class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<i class="fa fa-angle-left"></i>
+	</div>
+	<div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">{{paginaactual}} de {{numeropaginas}}</div>
+	<div (click)="desplazarse(1)" class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+		<i class="fa fa-angle-right"></i>
+	</div>
+</div>

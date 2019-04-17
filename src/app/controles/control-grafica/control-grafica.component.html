@@ -1,0 +1,12 @@
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" *ngIf="mostrarGrafica">
+    <canvas baseChart
+		[datasets]="lineChartData"
+		[labels]="lineChartLabels"
+		[options]="lineChartOptions"
+		[colors]="lineChartColors"
+		[legend]="lineChartLegend"
+		[chartType]="tipoGrafica"
+		(chartHover)="chartHovered($event)"
+		(chartClick)="chartClicked($event)">
+	</canvas>
+</div>

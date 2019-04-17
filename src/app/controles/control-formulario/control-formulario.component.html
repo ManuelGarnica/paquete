@@ -1,0 +1,207 @@
+<div *ngIf="formulario!=undefined">
+	<div class="row formulario">
+		<div *ngIf="verificarBrinco(formulario.identificador,undefined,-1)" class="col-lg-12 col-md-12 col-xs-12 col-sm-12"></div>
+		<div *ngFor="let campo of formulario.campos">
+			<div *ngIf="verificarBrinco(formulario.identificador,campo.nombre,campo.tamanio)" class="col-lg-12 col-md-12 col-xs-12 col-sm-12"></div>
+			<div class="{{campo['clase']}} col-lg-{{campo.tamanio!=null?campo.tamanio:12}} col-md-{{campo.tamanio!=null?campo.tamanio:12}} col-xs-12 col-sm-12">
+				<div class="row">
+					<div *ngIf="campo.tipo==='h1'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='label'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12" *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='text'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<input (input)="clickboton(campo.nombre,datosformulario)" class="form-control" type="text" [(ngModel)]="datosformulario[campo.nombre]" [placeholder]="campo.placeholder" [maxlength]="campo.maxlength"  [disabled]="campo['disabled']==='true'?'':null" />
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='mask'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<p-inputMask 
+								[(ngModel)]="datosformulario[campo.nombre]" 
+								[mask]="campo.mask"
+								unmask="true"
+							></p-inputMask>			
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='password'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<input class="form-control" type="password" [(ngModel)]="datosformulario[campo.nombre]" [placeholder]="campo.placeholder" [maxlength]="campo.maxlength" />
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='number'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<input class="form-control"  (click)="clickboton(campo.nombre,datosformulario)" type="number" [(ngModel)]="datosformulario[campo.nombre]"[value]="campo.mostrar" [placeholder]="campo.placeholder" [maxlength]="campo.maxlength" [min]="campo.minimo" [max]="campo.maximo"  />
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='spinner'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<p-spinner size="30" onChange="clickboton(campo.nombre,datosformulario)" [(ngModel)]="datosformulario[campo.nombre]" [min]="campo.minimo" [max]="campo.maximo"></p-spinner>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='time'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<input class="form-control" (click)="clickboton(campo.nombre,datosformulario)" type="time" [(ngModel)]="datosformulario[campo.nombre]" [value]="campo.inicio" [min]="campo.minimo" [max]="campo.terminar"  step="60"/>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='file'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12"  *ngIf="campo.label!==undefined&&campo.label!==''">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+						
+							<control-uploadfile
+								[placeholder]="campo['placeholder']"
+								[etiqueta]="campo['etiqueta']"
+								[tamanioinput]="campo['tamaniouploadinput']"
+								[tamaniolabel]="campo['tamaniouploadlabel']"
+								[urlCarga]="campo['url']"
+								[tamanio]="campo['tamanioupload']"
+								[archivoParaCargar]="datosformulario[campo.nombre]"
+								(archivoCargado)="achivoCargado(campo.nombre,$event)"
+							>
+							</control-uploadfile>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='checkbox'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<input (change)="clickboton(campo.nombre,datosformulario)" class="form-check"  type="checkbox"  [disabled]="campo['disabled']==='true'?'':null" [name]="campo.grupo" [(ngModel)]="datosformulario[(campo.grupo!==undefined?campo.grupo+'_':'')+campo.nombre]" />
+						</div>
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='date'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div   class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<control-datepicker 
+								[tipo]="campo.tipoCalendario"
+								[placeholder]="campo.placeholder"
+								[obligatorio]="campo.obligatorio"
+								[diamostrado]="datosformulario[campo.nombre]"
+								(cambioDia)='cambiarDia($event,campo.nombre,datosformulario)'
+							>
+							</control-datepicker>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='select'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div *ngIf="campo.tamaniolabel>0" class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<p-dropdown   
+								[autoWidth]="false"
+								[style]="{'width':'100%'}"
+								[options]="obtenerselect(formulario.datoscampos[campo.nombre].datos,formulario.datoscampos[campo.nombre])" 
+								[(ngModel)]="datosformulario[campo.nombre]"
+								[placeholder]="campo.placeholder!=null?campo.placeholder:'Selecciona una opción...'" 
+								(onChange)="clickboton(campo.nombre,datosformulario)"
+								[disabled]="campo['disabled']==='true'?true:false"
+							></p-dropdown>
+						<!--	<select class="form-control" (change)="clickboton(campo.nombre,datosformulario)" [(ngModel)]="datosformulario[campo.nombre]" (ngModelChange)="clickboton(campo.nombre,null)">
+								<option value=""  [disabled]="campo['disabled']==='true'?true:false">{{campo.placeholder!=null?campo.placeholder:"Elija una opción"}}</option>
+								<option [disabled]="campo['disabled']==='true'?true:false" [ngValue]="options[formulario.datoscampos[campo.nombre].id]"  *ngFor="let options of formulario.datoscampos[campo.nombre].datos">{{obtenerOptionSelect(formulario.datoscampos[campo.nombre].descripcion,options)}}</option>
+							</select>
+						
+							   -->
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='select-filter'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div *ngIf="campo.tamaniolabel>0" class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<p-dropdown   
+								[autoWidth]="false"
+								[style]="{'width':'100%'}"
+								[options]="obtenerselect(formulario.datoscampos[campo.nombre].datos,formulario.datoscampos[campo.nombre])" 
+								[(ngModel)]="datosformulario[campo.nombre]"
+								[placeholder]="campo.placeholder!=null?campo.placeholder:'Selecciona una opción...'"  
+								[filter]="true" 
+								filterBy="label,value.name"
+								(onChange)="clickboton(campo.nombre,datosformulario)"
+								[disabled]="campo['disabled']==='true'?true:false"
+							></p-dropdown>
+						<!--	<p-dropdown  [options]="portNames" [(ngModel)]="datosformulario[campo.nombre]" placeholder="Selecciona una opción" ></p-dropdown>
+							   -->
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='textarea'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+							<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+						</div>
+						<div  class="col-lg-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-md-{{campo.tamanioinput!=null?campo.tamanioinput:6}} col-xs-12 col-sm-12">
+							<textarea class="form-control" type="text" rows="5"  [disabled]="campo['disabled']==='true'?'':null" [(ngModel)]="datosformulario[campo.nombre]" [placeholder]="campo.placeholder"></textarea>
+						</div>
+					</div>
+					<div *ngIf="campo.tipo==='ayuda'" class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+						<div  class="formulariolabel col-lg-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-md-{{campo.tamaniolabel!=null?campo.tamaniolabel:6}} col-xs-12 col-sm-12">
+							<a (click)='mostrarmodal(campo.imagen)'>
+								<label *ngIf="(campo.obligatorio!=null?campo.obligatorio:false)===true"><span style="color: red;" >* </ span>{{campo.label}}</label>
+								<label *ngIf="campo.label!==obligatorio&&campo.obligatorio!=='' && (campo.obligatorio!=null?campo.obligatorio:false)===false">{{campo.label}}</label>
+								<i class="fa fa-info-circle"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div *ngIf="campo.validacion!==undefined && !validarcampo(campo.validacion,datosformulario[campo.nombre]) && validar['mostrarValidaciones']===true" class="mensajevalidacion col-lg-12 col-md-12 col-xs-12 col-sm-12">
+					{{campo.mensajevalidacion}}
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div *ngIf="formulario.botones!=undefined">
+		<div class="row botonera btn-group col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			<button class="btn {{campo['color']!==undefined?'':'btn-primary'}} col-md-push-{{campo['alineacion']}} col-lg-{{campo.tamanio!=null?campo.tamanio:2}} col-md-{{campo.tamanio!=null?campo.tamanio:2}} col-xs-12 col-sm-12" *ngFor="let campo of formulario.botones" (click)="clickboton(campo.nombre,datosformulario)" [style.background-color]="campo['backgroundcolor']" [style.color]="campo['color']" type="button">{{campo.label}}</button>
+		</div>
+	</div>
+	<control-modal
+		[mostrarse]="mostrarse"
+		[parametros]="parametrosmodal"
+		(ocultarse)="ocultarmodal($event)"
+	></control-modal>
+</div>

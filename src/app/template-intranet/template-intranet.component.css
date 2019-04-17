@@ -1,0 +1,20 @@
+.wrapper{
+	margin:auto;
+		width:100%;
+}
+.wrapper,.content-wrapper{
+	min-height: 95vh;
+}
+@media only screen and (max-width: 1179px) {
+	.wrapper{
+	}
+}
+@media only screen and (min-width: 1180px) {
+	.wrapper{
+	}
+}
+
+#intranetcontenido{
+	z-index:10;
+}
+

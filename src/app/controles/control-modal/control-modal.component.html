@@ -1,0 +1,13 @@
+
+<div *ngIf="vermodal" id="myModal" class="modal" (click)='cerrarmodal()'>
+    <span class="close" (click)='cerrarmodal()'>&times;</span>
+	<iframe class="imagen"
+		*ngIf="mostrarse"
+		class="modal-content"
+		[src]="trustedDashboardUrl"
+		style="height:100vh;width:80vw;@media print { body { display:none !important }; height: 0; "
+	></iframe>
+	<div id="caption"></div>
+</div>
+	
+  

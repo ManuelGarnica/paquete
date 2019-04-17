@@ -1,0 +1,106 @@
+
+	<mat-form-field *ngIf="static_DIA===tipo">
+	  <input matInput readonly [matDatepicker]="picker" [(ngModel)]="diavisualizado" [placeholder]="placeholder">
+	  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker  #picker (selectedChanged)="cambiofecha($event)" ></mat-datepicker>
+	</mat-form-field>
+	<mat-form-field *ngIf="static_ANIO===tipo">
+	  <input matInput readonly [matDatepicker]="picker" [(ngModel)]="diavisualizado" [placeholder]="placeholder">
+	  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker  #picker (selectedChanged)="cambiofecha($event)" startView="multi-year" ></mat-datepicker>
+	</mat-form-field>
+
+<div *ngIf="tipo==='calendario'">
+	<p-calendar 
+		[(ngModel)]="diavisualizado" 
+		showIcon="true" 
+		showAnim="slideDown"
+		[locale]="es"
+		dateFormat="yy/mm/dd"
+		dataType="string"
+		[monthNavigator]="true" 
+		[yearNavigator]="true" 
+		yearRange="1900:2030" 
+		icon="pi pi-calendar"
+		autoZIndex="true"
+		readonlyInput="true"	
+		(onSelect)="cambiofechap($event)" 
+	></p-calendar>
+</div>
+<div *ngIf="tipo==='maxdatetoday'">
+	<p-calendar 
+		[(ngModel)]="diavisualizado" 
+		showIcon="true" 
+		showAnim="slideDown"
+		[locale]="es"
+		dateFormat="yy/mm/dd"
+		dataType="string"
+		[maxDate]="startDate"
+		[monthNavigator]="true" 
+		[yearNavigator]="true" 
+		yearRange="1900:2030" 
+		icon="pi pi-calendar"
+		autoZIndex="true"
+		readonlyInput="true"	
+		(onSelect)="cambiofechap($event)" 
+	></p-calendar>
+</div>	
+<div *ngIf="tipo==='rango'">	
+	<p-calendar 
+		[(ngModel)]="diavisualizadorango" 
+		showIcon="true" 
+		showAnim="slideDown"
+		[locale]="es"
+		dateFormat="yy/mm/dd"
+		[placeholder]="'YYYY/DD/MM'"
+		dataType="string"
+		[monthNavigator]="true" 
+		[yearNavigator]="true" 
+		yearRange="1900:2030" 
+		icon="pi pi-calendar"
+		autoZIndex="true"
+		readonlyInput="true"
+		selectionMode="range"
+		(onSelect)="cambiofecharango($event)" 		
+	></p-calendar>
+	<div>
+		<span style="color:#2E64FE;">Selecciona un rango de fechas.</span>
+	</div>
+	<br>
+</div>
+<div *ngIf="tipo==='multiple'">
+	<p-calendar 
+		[(ngModel)]="diavisualizadoarray" 
+		showIcon="true" 
+		showAnim="slideDown"
+		[locale]="es"
+		dateFormat="yy/mm/dd"
+		[placeholder]="'YYYY/DD/MM'"
+		dataType="string"
+		[monthNavigator]="true" 
+		[yearNavigator]="true" 
+		yearRange="1900:2030" 
+		icon="pi pi-calendar"
+		autoZIndex="true"
+		readonlyInput="true"
+		selectionMode="multiple"
+		(onSelect)="cambiofechamultiple($event)" 		
+	></p-calendar>
+	
+	<div>
+		<span style="color:#2E64FE;">Selecciona multiples fechas.</span>
+	</div>
+	<br>
+</div>
+
+<div *ngIf="tipo==='hora'">
+	<p-calendar 
+		[(ngModel)]="diavisualizado" 
+		[timeOnly]="true" 
+		showAnim="slideDown"
+		[locale]="es"
+		autoZIndex="true"
+		readonlyInput="true"	
+		(onSelect)="seleccionahora($event)" 
+	></p-calendar>
+</div>

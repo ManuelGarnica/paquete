@@ -1,0 +1,116 @@
+<div class="wrapper" >
+	<div>
+		<template-contenido-header></template-contenido-header>
+	</div>
+	   
+	<div id="intranetcontenido"  class ="marginDefault" class="row">
+		
+		<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+			
+			<div id="menumodulo" class="col-lg-8 col-md-8 col-xs-12 col-sm-12">
+				<router-outlet></router-outlet>
+				<h4 class="texto1">
+					<b>Menú de {{configuracion['sistema']['nombre']}}</b>
+				</h4>
+				<hr class="hr">
+				<div *ngIf="validarSalto(-1)" class="col-lg-12 col-md-12 col-xs-12 col-sm-12"></div>
+				<div *ngFor="let opcion of configuracion['menudelmodulo']['contenido']">
+					<div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+						<a *ngIf="opcion['link'].substring(0,4)=='http'" href="{{opcion['link']}}">
+							<img src="{{urlImagenes}}{{opcion.imagen_seleccionada}}"  *ngIf="router.url===opcion.link&&opcion.imagen_seleccionada!==undefined" border="1" class="center" alt="{{opcion['titulo']}}" width="113px" height="116px">
+							<img src="{{urlImagenes}}{{opcion['imagen']}}" *ngIf="router.url!==opcion.link||opcion.imagen_seleccionada===undefined" border="1" class="center" alt="{{opcion['titulo']}}" width="113px" height="116px">
+							<h4>{{opcion['titulo']}}</h4>
+						</a>
+						<a *ngIf="opcion['link'].substring(0,4)!='http'" [routerLink]="opcion['link']">
+							<img src="{{urlImagenes}}{{opcion.imagen_seleccionada}}"  *ngIf="router.url===opcion.link&&opcion.imagen_seleccionada!==undefined" border="1" class="center" alt="{{opcion['titulo']}}" width="113px" height="116px">
+							<img src="{{urlImagenes}}{{opcion['imagen']}}" *ngIf="router.url!==opcion.link||opcion.imagen_seleccionada===undefined" border="1" class="center" alt="{{opcion['titulo']}}" width="113px" height="116px">
+							<h4>{{opcion['titulo']}}</h4>
+						</a>
+					</div>
+					<div *ngIf="validarSalto(3)" class="col-lg-12 col-md-12 col-xs-12 col-sm-12"></div>
+				</div>
+			</div>
+			<div id="menulateral" class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+				<img src="{{urlImagenes}}{{configuracion['sistema']['logoModulo']}}" border="1" text-align="center" alt="{{configuracion['sistema']['nombre']}}" width="200" height="200">
+				<br>
+				<h3 class="titulo">{{configuracion['sistema']['nombre']}}</h3>
+				<br>
+				<a class="titulo1"><h4><b>Menú</b></h4></a>
+				<hr class="hr">
+				<span  *ngFor="let opcion of configuracion['menudelmodulo']['contenido']">
+					<div *ngIf="opcion['link'].substring(0,4)!='http'">
+						<a *ngIf="router.url===opcion.link && opcion['link'].substring(0,4)!='http'" [routerLink]="opcion['link']" rel="{{opcion['link']}}"><b>{{opcion['titulo']}}</b></a>
+						<a *ngIf="router.url!==opcion.link && opcion['link'].substring(0,4)!='http'" [routerLink]="opcion['link']" rel="{{opcion['link']}}">{{opcion['titulo']}}</a>
+					</div>
+					<div *ngIf="opcion['link'].substring(0,4)=='http'">
+						<a *ngIf="router.url===opcion.link && opcion['link'].substring(0,4)=='http'" href="{{opcion['link']}}" rel="{{opcion['link']}}"><b>{{opcion['titulo']}}</b></a>
+						<a *ngIf="router.url!==opcion.link && opcion['link'].substring(0,4)=='http'" href="{{opcion['link']}}" rel="{{opcion['link']}}">{{opcion['titulo']}}</a>
+					</div>
+					<br>
+				</span>
+				
+				<br>
+					<a class="titulo"><h4><b>Noticias del Conde</b></h4></a>
+					<hr class="hr">
+					
+					<ul class="hover">
+						<li *ngFor="let opcion of configuracion['contenido']['noticias']" >
+							<div *ngIf="opcion['archivo']===null && opcion['extension']===null">
+								<span *ngIf="opcion['link'].substring(0,4)!='http'">
+								<span *ngIf="opcion['habilitado']==='1'">
+									<a [routerLink]="opcion['link']" rel="{{opcion['link']}}">{{opcion['titulo']}}</a>
+								</span>
+								<span class="deshabilitado" *ngIf="opcion['habilitado']!=='1'">
+									{{opcion['titulo']}}
+								</span>
+								</span>
+								<span *ngIf="opcion['link'].substring(0,4)=='http'">
+									<span *ngIf="opcion['habilitado']==='1'">
+										<a
+											href="{{opcion['link']}}"
+											rel="{{opcion['link']}}"
+										>{{opcion['titulo']}}</a>
+									</span>
+									<span  class="deshabilitado" *ngIf="opcion['habilitado']!=='1'">
+										{{opcion['titulo']}}
+									</span>
+								</span>
+							</div>
+							<div *ngIf="opcion['archivo']!==null && opcion['extension']!==null" >
+									<span *ngIf="opcion['habilitado']==='1'" style="cursor:pointer;">
+										<a (click)="clicklink(opcion)" >{{opcion['titulo']}}</a>
+									</span>
+									<span class="deshabilitado" *ngIf="opcion['habilitado']!=='1'">
+										{{opcion['titulo']}}
+									</span>
+							
+							
+							</div>
+						</li>
+					</ul>
+					
+					<br>
+					<a class="titulo"><h4><b>Comunicados Recientes</b></h4></a>
+					<hr class="hr">
+				<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" *ngFor="let opcion of configuracion['contenido']['comunicadosrecientes']">
+					<a *ngIf="opcion['link'].substring(0,4)!='http'" [routerLink]="[opcion['link']]">
+						<img  class="noticias" src="{{urlImagenes}}{{opcion['imagen']}}" border="1"  alt="Notocia1"  >
+					</a>
+					<a *ngIf="opcion['link'].substring(0,4)=='http'" href="{{opcion['link']}}">
+						<img  class="noticias" src="{{urlImagenes}}{{opcion['imagen']}}" border="1"  alt="Notocia1"  >
+					</a>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<template-contenido-buttom></template-contenido-buttom>
+<control-modal
+		[mostrarse]="mostrarse"
+		[parametros]="parametrosmodal"
+		(ocultarse)="ocultarmodal($event)"
+></control-modal>
+</div>
+
