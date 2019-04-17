@@ -1,1 +1,290 @@
-/* You can add global styles to this file, and also import other style files */
+.skin-blue .wrapper{
+	background-color:white !important;
+}
+
+template-limpio .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+template-isalud .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+
+template-limpio .wrapper{
+	max-width:80% !important;
+	max-width:auto !important;
+	background-color:white !important;
+}
+template-isalud .wrapper{
+	height:auto !important;
+	max-width:80% !important;
+	margin:auto !important;
+}
+template-adminlte .wrapper{
+	height:auto !important;
+	min-height: 873px !important;
+}
+template-adminlte .content-wrapper{
+	padding-left:15px;
+	padding-right:15px;
+	min-height: 873px !important;
+}
+.resaltar{
+    font-family: Arial;
+	color:brown;
+	font-size:15px;
+	
+}
+.resaltarinput input{
+	
+    box-sizing: border-box;
+    border: 2px solid gray;
+    border-radius: 4px;
+	
+}
+.resaltarinput label{
+	
+    background-color:yellow;
+	
+}
+
+
+
+ng-progress-bar div{
+}
+
+
+
+ngx-ui-loader div{
+	position: absolute;
+    left: 0px;
+    top: 0px;
+	width:100% !important;
+	height:100% !important;
+	background-color:gray !important;
+	opacity: 0.5 !important;
+	z-index:1000;
+}
+@font-face {font-family:'Roboto';
+src:url('/assets/fonts/roboto/Roboto-Regular.ttf') format("truetype");
+}
+
+template-intranet .wrapper{
+	max-width:1200px;
+	background-color:white !important;
+}
+template-intranet .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+template-contenido .wrapper{
+	max-width:1200px;
+	height:inherit !important;
+	background-color:white !important;
+	margin: auto !important;
+}
+template-contenido .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+
+
+
+template-intranet h3.titulo{
+	font-weight : bolder;
+	font-size: 20px;	
+    color: #44B7A7;
+}
+template-intranet .hr {
+ height: 5px;
+  background-color: #23687A;
+  width : "%100";
+}
+
+template-intranet .titulo[_ngcontent-c4]{
+	font-family: Roboto !important;
+	font-weight: bold!important;
+	 font-size: 30px!important;
+    color: #44B7A7;
+	text-align: center!important;
+}
+template-intranet h4[_ngcontent-c4]{
+	font-size: 16px !important;
+	
+}
+template-intranet h4[_ngcontent-c7]{
+	font-size: 15px !important;
+	
+}
+template-intranet b[_ngcontent-c4]{
+	font-size: 20px !important;
+}
+template-intranet div[_ngcontent-c4]{
+	font-size: 16px !important;
+	font-weight: bold;
+}
+template-intranet .box-body{
+	font-weight: normal!important;
+}
+template-intranet div[_ngcontent-c5]{
+	font-size: 20 !important;
+}
+template-intranet a{
+	font-size: 16 !important;
+	color: black!important;	
+}
+template-intranet b{
+	font-size: 20 !important;
+}
+template-intranet h1, template-intranet .h1{
+	font-family: 'Roboto' !important;
+	font-weight : bolder;
+	font-size: 30px !important;
+	color: #44B7A7!important;	 
+	text-align: center!important;	
+}
+template-intranet h1
+,template-intranet h2
+,template-intranet h3
+,template-intranet h4
+,template-intranet h5
+,template-intranet h6 
+,template-intranet body
+,template-intranet li
+,template-intranet b
+,template-intranet html
+,template-intranet .h1
+,template-intranet .h2
+,template-intranet .h3
+,template-intranet .h4
+,template-intranet .h5
+,template-intranet .h6
+,template-intranet .contenidoPlantilla
+{
+    font-family: 'Roboto' !important;
+	font-weight: bold;
+	  
+}
+template-intranet button {
+	PADDING-RIGHT: 10px!important; 
+	PADDING-LEFT: 10px!important;
+    margin-left: 10px!important;
+	margin-right: 10px!important;
+	background: #337ab7 !important;
+	color: white!important;	
+	
+}
+
+template-intranet .wrapper{
+	max-width:1200px;
+	background-color:white !important;
+}
+template-intranet .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+template-contenido .wrapper{
+	max-width:1200px;
+	height:inherit !important;
+	background-color:white !important;
+	margin: auto !important;
+}
+template-contenido .content-wrapper{
+	margin-left:0px !important;
+	background-color:white !important;
+}
+
+
+
+template-contenido h3.titulo{
+	font-weight : bolder;
+	font-size: 20px;	
+    color: #44B7A7;
+}
+template-contenido .hr {
+ height: 5px;
+  background-color: #23687A;
+  width : "%100";
+}
+
+template-contenido .titulo[_ngcontent-c4]{
+	font-family: Roboto !important;
+	font-weight: bold!important;
+	 font-size: 30px!important;
+    color: #44B7A7;
+	text-align: center!important;
+}
+template-contenido h4[_ngcontent-c4]{
+	font-size: 15px !important;
+	
+}
+template-contenido h4[_ngcontent-c7]{
+	font-size: 15px !important;
+	
+}
+template-contenido b[_ngcontent-c4]{
+	font-size: 20px !important;
+}
+template-contenido div[_ngcontent-c4]{
+	font-size: 16px !important;
+	font-weight: bold;
+}
+template-contenido .box-body{
+	font-weight: normal!important;
+}
+template-contenido div[_ngcontent-c5]{
+	font-size: 20 !important;
+}
+template-contenido a{
+	font-size: 16 !important;
+	color: black!important;	
+}
+template-contenido b{
+	font-size: 20 !important;
+}
+template-contenido h1, template-contenido .h1{
+	font-family: 'Roboto' !important;
+	font-weight : bolder;
+	font-size: 30px !important;
+	color: #44B7A7!important;	 
+	text-align: center!important;	
+}
+template-contenido h1
+,template-contenido h2
+,template-contenido h3
+,template-contenido h4
+,template-contenido h5
+,template-contenido h6 
+,template-contenido body
+,template-contenido li
+,template-contenido b
+,template-contenido html
+,template-contenido .h1
+,template-contenido .h2
+,template-contenido .h3
+,template-contenido .h4
+,template-contenido .h5
+,template-contenido .h6
+,template-contenido .contenidoPlantilla
+{
+    font-family: 'Roboto' !important;
+	font-weight: bold;
+	  
+}
+template-contenido button {
+	PADDING-RIGHT: 10px!important; 
+	PADDING-LEFT: 10px!important;
+    margin-left: 10px!important;
+	margin-right: 10px!important;
+	background: #337ab7 !important;
+	color: white!important;	
+	
+}
+span.deshabilitado{
+	color:#C8C8C8 !important;
+}
+
+
+
+
